@@ -1,8 +1,7 @@
 library(tidyverse)
-library(wordcloud2)
-library(ggwordcloud)
 library(plotly)
 library(ggplot2)
+library(ggthemes)
 
 survey_data = read.csv("C:/Users/JDBOR/OneDrive/Desktop/Stats labs/capstone/2023 Higher Education Survey_March 19, 2023_choices - Sheet1.csv")
 
@@ -33,15 +32,18 @@ colnames(survey_data) = c('start_date',
                           'age',
                           'gender',
                           'ethnicity')
+
+
+
 ggplot(survey_data)+
-  geom_bar(mapping = aes(y = career_related, fill = career_related))+
-  facet_wrap("service_branch")
+  geom_bar(mapping = aes(y = career_related, fill = career_related), 
+           show.legend = FALSE)+
+  facet_wrap("service_branch")+
+  labs(title = "Do Vets and Active Duty Members choose Majors similar to their 
+       military career?", y = "Response", x = "# of Responses")+
+  scale_x_continuous(n.breaks=4, limits = c(0,12))+
+  theme_fivethirtyeight()+
+  theme(plot.title = element_text(hjust = 0.5))+
+  scale_fill_brewer(palette = "Pastel1")
 
-df = data.frame(relation = survey_data$career_related)
 
-feq = df %>%
-  count(relation)
-
-ggplot(feq, aes(x = relation, y = n, fill = factor(relation)))+
-  geom_bar(position = "dodge", stat = 'identity')+
-  coord_flip()
