@@ -3,7 +3,7 @@ library(plotly)
 library(ggplot2)
 library(ggthemes)
 
-survey_data = read.csv("C:/Users/JDBOR/OneDrive/Desktop/Stats labs/capstone/2023 Higher Education Survey_March 19, 2023_choices - Sheet1.csv")
+survey_data = read.csv("C:/Users/JDBOR/OneDrive/Desktop/Stats labs/capstone/Final_data_choices.csv")
 
 
 survey_data <- survey_data[,-22]
@@ -45,5 +45,4 @@ ggplot(survey_data)+
   theme_fivethirtyeight()+
   theme(plot.title = element_text(hjust = 0.5))+
   scale_fill_brewer(palette = "Pastel1")
-
 
