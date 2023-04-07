@@ -15,7 +15,7 @@ library(ggplot2)
 
 
 #read in survey data
-survey_data = read.csv("C:/Users/JDBOR/OneDrive/Desktop/Stats labs/capstone/2023 Higher Education Survey_March 19, 2023_choices - Sheet1.csv")
+survey_data = read.csv("C:/Users/JDBOR/OneDrive/Desktop/Stats labs/capstone/Final_data_choices.csv")
 
 #clean survey data for easier graphing work
 survey_data <- survey_data[,-22]
